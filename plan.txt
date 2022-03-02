@@ -1,0 +1,13 @@
+512 Project Plan
+
+Group Members:
+Lorne Zhang
+Kyle Campbell
+
+Topic: The Challenge of Sybil Voters in DAO Voting Protocols
+
+Sprint 1:
+- Implement basic voting simulation infrastructure
+- Test a basic voting simulation
+- Add quadratic voting
+- Test a basic quadratic voting simulation
