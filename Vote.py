@@ -1,14 +1,14 @@
 
 class Vote:
-    def __init__(self, vote, weight):
+    def __init__(self, vote, cost):
         self.vote = vote
-        self.weight = weight
+        self.cost = cost
 
     def getVote(self):
         return self.vote
 
-    def getWeight(self):
-        return self.weight
+    def getCost(self):
+        return self.cost
     
     def getVoteCount(self):
-        return self.vote * self.weight
+        return self.vote * self.cost
