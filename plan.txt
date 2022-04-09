@@ -5,9 +5,12 @@ Lorne Zhang
 Kyle Campbell
 
 Topic: The Challenge of Sybil Voters in DAO Voting Protocols
-
-Sprint 1:
-- Implement basic voting simulation infrastructure
-- Test a basic voting simulation
-- Add quadratic voting
-- Test a basic quadratic voting simulation
+Classes
+- VotingEngine
+- VotingProtocol (abstract)
+- NormalVotingProtocol extends VotingProtocol
+- QuadraticVotingProtocol extends VotingProtocol
+- Voter (abstract)
+- BadVoter extends Voter
+- GoodVoter extends Voter
+- Vote
