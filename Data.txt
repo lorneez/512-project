@@ -1,27 +1,24 @@
 Initial tests:
-Protocol: Normal, Attacker: No Partition
+Normal
 Attacker owns 10.0 percent
-[100, 0, 0]
-Protocol: Normal, Attacker: Partition
+[pass, fail, tie] =  [100, 0, 0]
 Attacker owns 10.0 percent
-[49, 48, 3]
-[[100, 0, 0], [49, 48, 3]]
+[pass, fail, tie] =  [100, 0, 0]
+[[100, 0, 0], [100, 0, 0]]
 
-Protocol: PQV, Attacker: No Partition
+Quadratic
 Attacker owns 10.0 percent
-[100, 0, 0]
-Protocol: PQV, Attacker: Partition
+[pass, fail, tie] =  [68, 31, 1]
 Attacker owns 10.0 percent
-[38, 29, 33]
-[[100, 0, 0], [38, 29, 33]]
+[pass, fail, tie] =  [100, 0, 0]
+[[68, 31, 1], [100, 0, 0]]
 
-Protocol: Quadratic, Attacker: No Partition
+PQV
 Attacker owns 10.0 percent
-[31, 29, 40]
-Protocol: Quadratic, Attacker: Partition
+[pass, fail, tie] =  [22, 34, 44]
 Attacker owns 10.0 percent
-[100, 0, 0]
-[[31, 29, 40], [100, 0, 0]]
+[pass, fail, tie] =  [36, 22, 42]
+[[22, 34, 44], [36, 22, 42]]
 
 Increasing percentage tests:
 Protocol: Quadratic, Attacker: Partition
@@ -107,6 +104,12 @@ Attacker owns 28.999999999999996 percent
 Attacker owns 30.0 percent
 [100, 0, 0]
 
+[100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [44, 52, 4], [59, 39, 2], [67, 28, 5], [81, 19, 0], [87, 11, 2], [94, 4, 2], [94, 6, 0]
+
+
+[36, 18, 46], [35, 24, 41], [39, 22, 39], [30, 24, 46], [27, 19, 54], [33, 23, 44], [37, 23, 40], [31, 21, 48], [26, 21, 53], [31, 22, 47], [32, 24, 44], [36, 19, 45], [41, 23, 36], [28, 27, 45], [40, 20, 40], [31, 26, 43], [32, 25, 43], [36, 19, 45], [38, 26, 36], [35, 23, 42], [38, 17, 45], [35, 23, 42], [31, 24, 45], [26, 25, 49], [36, 19, 45], [24, 20, 56], [37, 21, 42], [41, 25, 34], [33, 27, 40], [20, 21, 59], [38, 26, 36]
+
+
 Protocol: PQV, Attacker: Partition
 Attacker owns 0.0 percent
 [36, 18, 46]
@@ -172,205 +175,106 @@ Attacker owns 30.0 percent
 [38, 26, 36]
 
 Protocol: PQV, Attacker: Partition
-Attacker owns 0.0 percent
-[pass, fail, tie] =  [36, 22, 42]
-Attacker owns 1.0 percent
-[pass, fail, tie] =  [32, 31, 37]
-Attacker owns 2.0 percent
-[pass, fail, tie] =  [34, 25, 41]
-Attacker owns 3.0 percent
-[pass, fail, tie] =  [24, 23, 53]
-Attacker owns 4.0 percent
-[pass, fail, tie] =  [34, 28, 38]
-Attacker owns 5.0 percent
-[pass, fail, tie] =  [28, 25, 47]
-Attacker owns 6.0 percent
-[pass, fail, tie] =  [40, 23, 37]
-Attacker owns 7.000000000000001 percent
-[pass, fail, tie] =  [33, 22, 45]
-Attacker owns 8.0 percent
-[pass, fail, tie] =  [35, 30, 35]
-Attacker owns 9.0 percent
-[pass, fail, tie] =  [34, 26, 40]
-Attacker owns 10.0 percent
-[pass, fail, tie] =  [31, 23, 46]
-Attacker owns 11.0 percent
-[pass, fail, tie] =  [29, 27, 44]
-Attacker owns 12.0 percent
-[pass, fail, tie] =  [36, 26, 38]
-Attacker owns 13.0 percent
-[pass, fail, tie] =  [34, 22, 44]
-Attacker owns 14.000000000000002 percent
-[pass, fail, tie] =  [32, 26, 42]
-Attacker owns 15.0 percent
-[pass, fail, tie] =  [32, 24, 44]
-Attacker owns 16.0 percent
-[pass, fail, tie] =  [33, 22, 45]
-Attacker owns 17.0 percent
-[pass, fail, tie] =  [31, 20, 49]
-Attacker owns 18.0 percent
-[pass, fail, tie] =  [31, 24, 45]
-Attacker owns 19.0 percent
-[pass, fail, tie] =  [37, 20, 43]
-Attacker owns 20.0 percent
-[pass, fail, tie] =  [40, 26, 34]
-Attacker owns 21.0 percent
-[pass, fail, tie] =  [39, 26, 35]
-Attacker owns 22.0 percent
-[pass, fail, tie] =  [26, 27, 47]
-Attacker owns 23.0 percent
-[pass, fail, tie] =  [37, 24, 39]
-Attacker owns 24.0 percent
-[pass, fail, tie] =  [36, 14, 50]
-Attacker owns 25.0 percent
-[pass, fail, tie] =  [38, 24, 38]
-Attacker owns 26.0 percent
-[pass, fail, tie] =  [36, 22, 42]
-Attacker owns 27.0 percent
-[pass, fail, tie] =  [35, 23, 42]
-Attacker owns 28.000000000000004 percent
-[pass, fail, tie] =  [48, 22, 30]
-Attacker owns 28.999999999999996 percent
-[pass, fail, tie] =  [35, 21, 44]
-Attacker owns 30.0 percent
-[pass, fail, tie] =  [40, 22, 38]
-Attacker owns 31.0 percent
-[pass, fail, tie] =  [34, 24, 42]
-Attacker owns 32.0 percent
-[pass, fail, tie] =  [37, 18, 45]
-Attacker owns 33.0 percent
-[pass, fail, tie] =  [42, 18, 40]
-Attacker owns 34.0 percent
-[pass, fail, tie] =  [37, 30, 33]
-Attacker owns 35.0 percent
-[pass, fail, tie] =  [40, 21, 39]
-Attacker owns 36.0 percent
-[pass, fail, tie] =  [46, 18, 36]
-Attacker owns 37.0 percent
-[pass, fail, tie] =  [31, 19, 50]
-Attacker owns 38.0 percent
-[pass, fail, tie] =  [35, 18, 47]
-Attacker owns 39.0 percent
-[pass, fail, tie] =  [35, 17, 48]
-Attacker owns 40.0 percent
-[pass, fail, tie] =  [41, 19, 40]
-Attacker owns 41.0 percent
-[pass, fail, tie] =  [38, 21, 41]
-Attacker owns 42.0 percent
-[pass, fail, tie] =  [39, 19, 42]
-Attacker owns 43.0 percent
-[pass, fail, tie] =  [37, 18, 45]
-Attacker owns 44.0 percent
-[pass, fail, tie] =  [27, 25, 48]
-Attacker owns 45.0 percent
-[pass, fail, tie] =  [46, 16, 38]
-Attacker owns 46.0 percent
-[pass, fail, tie] =  [42, 21, 37]
-Attacker owns 47.0 percent
-[pass, fail, tie] =  [43, 18, 39]
-Attacker owns 48.0 percent
-[pass, fail, tie] =  [41, 17, 42]
-Attacker owns 49.0 percent
-[pass, fail, tie] =  [47, 17, 36]
-Attacker owns 50.0 percent
-[pass, fail, tie] =  [31, 19, 50]
-Attacker owns 51.0 percent
-[pass, fail, tie] =  [41, 18, 41]
-Attacker owns 52.0 percent
-[pass, fail, tie] =  [34, 25, 41]
-Attacker owns 53.0 percent
-[pass, fail, tie] =  [35, 23, 42]
-Attacker owns 54.0 percent
-[pass, fail, tie] =  [40, 18, 42]
-Attacker owns 55.00000000000001 percent
-[pass, fail, tie] =  [35, 21, 44]
-Attacker owns 56.00000000000001 percent
-[pass, fail, tie] =  [36, 15, 49]
-Attacker owns 56.99999999999999 percent
-[pass, fail, tie] =  [33, 16, 51]
-Attacker owns 57.99999999999999 percent
-[pass, fail, tie] =  [38, 15, 47]
-Attacker owns 59.0 percent
-[pass, fail, tie] =  [36, 21, 43]
-Attacker owns 60.0 percent
-[pass, fail, tie] =  [39, 14, 47]
-Attacker owns 61.0 percent
-[pass, fail, tie] =  [31, 25, 44]
-Attacker owns 62.0 percent
-[pass, fail, tie] =  [38, 21, 41]
-Attacker owns 63.0 percent
-[pass, fail, tie] =  [43, 24, 33]
-Attacker owns 64.0 percent
-[pass, fail, tie] =  [42, 17, 41]
-Attacker owns 65.0 percent
-[pass, fail, tie] =  [57, 11, 32]
-Attacker owns 66.0 percent
-[pass, fail, tie] =  [42, 20, 38]
-Attacker owns 67.0 percent
-[pass, fail, tie] =  [41, 13, 46]
-Attacker owns 68.0 percent
-[pass, fail, tie] =  [42, 22, 36]
-Attacker owns 69.0 percent
-[pass, fail, tie] =  [40, 17, 43]
-Attacker owns 70.0 percent
-[pass, fail, tie] =  [42, 13, 45]
-Attacker owns 71.0 percent
-[pass, fail, tie] =  [50, 15, 35]
-Attacker owns 72.0 percent
-[pass, fail, tie] =  [54, 16, 30]
-Attacker owns 73.0 percent
-[pass, fail, tie] =  [44, 15, 41]
-Attacker owns 74.0 percent
-[pass, fail, tie] =  [46, 15, 39]
-Attacker owns 75.0 percent
-[pass, fail, tie] =  [51, 14, 35]
-Attacker owns 76.0 percent
-[pass, fail, tie] =  [37, 18, 45]
-Attacker owns 77.0 percent
-[pass, fail, tie] =  [42, 20, 38]
-Attacker owns 78.0 percent
-[pass, fail, tie] =  [46, 19, 35]
-Attacker owns 79.0 percent
-[pass, fail, tie] =  [47, 11, 42]
-Attacker owns 80.0 percent
-[pass, fail, tie] =  [41, 20, 39]
-Attacker owns 81.0 percent
-[pass, fail, tie] =  [50, 14, 36]
-Attacker owns 82.0 percent
-[pass, fail, tie] =  [52, 16, 32]
-Attacker owns 83.0 percent
-[pass, fail, tie] =  [49, 13, 38]
-Attacker owns 84.0 percent
-[pass, fail, tie] =  [40, 10, 50]
-Attacker owns 85.0 percent
-[pass, fail, tie] =  [47, 15, 38]
-Attacker owns 86.0 percent
-[pass, fail, tie] =  [55, 13, 32]
-Attacker owns 87.0 percent
-[pass, fail, tie] =  [55, 14, 31]
-Attacker owns 88.0 percent
-[pass, fail, tie] =  [56, 11, 33]
-Attacker owns 89.0 percent
-[pass, fail, tie] =  [56, 12, 32]
-Attacker owns 90.0 percent
-[pass, fail, tie] =  [57, 9, 34]
-Attacker owns 91.0 percent
-[pass, fail, tie] =  [65, 7, 28]
-Attacker owns 92.0 percent
-[pass, fail, tie] =  [63, 6, 31]
-Attacker owns 93.0 percent
-[pass, fail, tie] =  [65, 8, 27]
-Attacker owns 94.0 percent
-[pass, fail, tie] =  [64, 4, 32]
-Attacker owns 95.0 percent
-[pass, fail, tie] =  [80, 5, 15]
-Attacker owns 96.0 percent
-[pass, fail, tie] =  [75, 4, 21]
-Attacker owns 97.0 percent
-[pass, fail, tie] =  [75, 2, 23]
-Attacker owns 98.0 percent
-[pass, fail, tie] =  [87, 3, 10]
-Attacker owns 99.0 percent
-[pass, fail, tie] =  [87, 0, 13]
-Attacker owns 100.0 percent
-[pass, fail, tie] =  [100, 0, 0]
+[31, 23, 46]
+[25, 29, 46]
+[26, 25, 49]
+[25, 23, 52]
+[35, 22, 43]
+[35, 20, 45]
+[36, 30, 34]
+[37, 22, 41]
+[31, 17, 52]
+[32, 19, 49]
+[25, 29, 46]
+[33, 20, 47]
+[41, 23, 36]
+[37, 19, 44]
+[28, 24, 48]
+[36, 27, 37]
+[37, 17, 46]
+[38, 16, 46]
+[37, 16, 47]
+[33, 23, 44]
+[30, 26, 44]
+[25, 26, 49]
+[31, 21, 48]
+[32, 28, 40]
+[34, 16, 50]
+[33, 17, 50]
+[35, 23, 42]
+[38, 20, 42]
+[35, 18, 47]
+[36, 19, 45]
+[38, 17, 45]
+[37, 22, 41]
+[39, 21, 40]
+[30, 27, 43]
+[29, 31, 40]
+[32, 17, 51]
+[43, 24, 33]
+[33, 20, 47]
+[35, 23, 42]
+[30, 26, 44]
+[28, 23, 49]
+[35, 18, 47]
+[36, 29, 35]
+[31, 21, 48]
+[33, 24, 43]
+[30, 22, 48]
+[31, 21, 48]
+[28, 18, 54]
+[37, 23, 40]
+[40, 20, 40]
+[32, 15, 53]
+[41, 16, 43]
+[36, 19, 45]
+[43, 15, 42]
+[40, 21, 39]
+[35, 23, 42]
+[35, 23, 42]
+[42, 16, 42]
+[44, 16, 40]
+[45, 14, 41]
+[38, 20, 42]
+[31, 23, 46]
+[44, 19, 37]
+[36, 18, 46]
+[44, 20, 36]
+[45, 22, 33]
+[35, 17, 48]
+[41, 19, 40]
+[38, 24, 38]
+[49, 15, 36]
+[39, 20, 41]
+[42, 13, 45]
+[47, 17, 36]
+[43, 11, 46]
+[48, 12, 40]
+[41, 22, 37]
+[51, 13, 36]
+[46, 18, 36]
+[46, 14, 40]
+[53, 15, 32]
+[53, 15, 32]
+[51, 8, 41]
+[52, 11, 37]
+[48, 18, 34]
+[51, 15, 34]
+[48, 10, 42]
+[50, 8, 42]
+[59, 9, 32]
+[56, 12, 32]
+[58, 9, 33]
+[62, 13, 25]
+[56, 9, 35]
+[65, 7, 28]
+[69, 7, 24]
+[56, 11, 33]
+[67, 2, 31]
+[77, 4, 19]
+[79, 2, 19]
+[83, 3, 14]
+[95, 0, 5]
+[100, 0, 0]
+
+[31, 23, 46], [25, 29, 46], [26, 25, 49], [25, 23, 52], [35, 22, 43], [35, 20, 45], [36, 30, 34], [37, 22, 41], [31, 17, 52], [32, 19, 49], [25, 29, 46], [33, 20, 47], [41, 23, 36], [37, 19, 44], [28, 24, 48], [36, 27, 37], [37, 17, 46], [38, 16, 46], [37, 16, 47], [33, 23, 44], [30, 26, 44], [25, 26, 49], [31, 21, 48], [32, 28, 40], [34, 16, 50], [33, 17, 50], [35, 23, 42], [38, 20, 42], [35, 18, 47], [36, 19, 45], [38, 17, 45], [37, 22, 41], [39, 21, 40], [30, 27, 43], [29, 31, 40], [32, 17, 51], [43, 24, 33], [33, 20, 47], [35, 23, 42], [30, 26, 44], [28, 23, 49], [35, 18, 47], [36, 29, 35], [31, 21, 48], [33, 24, 43], [30, 22, 48], [31, 21, 48], [28, 18, 54], [37, 23, 40], [40, 20, 40], [32, 15, 53], [41, 16, 43], [36, 19, 45], [43, 15, 42], [40, 21, 39], [35, 23, 42], [35, 23, 42], [42, 16, 42], [44, 16, 40], [45, 14, 41], [38, 20, 42], [31, 23, 46], [44, 19, 37], [36, 18, 46], [44, 20, 36], [45, 22, 33], [35, 17, 48], [41, 19, 40], [38, 24, 38], [49, 15, 36], [39, 20, 41], [42, 13, 45], [47, 17, 36], [43, 11, 46], [48, 12, 40], [41, 22, 37], [51, 13, 36], [46, 18, 36], [46, 14, 40], [53, 15, 32], [53, 15, 32], [51, 8, 41], [52, 11, 37], [48, 18, 34], [51, 15, 34], [48, 10, 42], [50, 8, 42], [59, 9, 32], [56, 12, 32], [58, 9, 33], [62, 13, 25], [56, 9, 35], [65, 7, 28], [69, 7, 24], [56, 11, 33], [67, 2, 31], [77, 4, 19], [79, 2, 19], [83, 3, 14], [95, 0, 5], [100, 0, 0]

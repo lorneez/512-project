@@ -19,22 +19,16 @@ class VotingEngine:
         elif self.simulation_type == "Sybil-Attacker-PQV-Test":
             self.run_test(0.1, 1000, "PQV", True)
         elif self.simulation_type == "Simulate-Attacker-Test-100":
-            print("Protocol: Normal, Attacker: No Partition")
             self.simulate_attacker_test(100, "Normal", False, True, 0.1)
         elif self.simulation_type == "Simulate-Sybil-Attacker-Quadratic-Test-100":
-            print("Protocol: Normal, Attacker: Partition")
             self.simulate_attacker_test(100, "Quadratic", False, True, 0.1)
         elif self.simulation_type == "Simulate-Sybil-Attacker-PQV-Test-100":
-            print("Protocol: Quadratic, Attacker: No Partition")
             self.simulate_attacker_test(100, "PQV", False, True, 0.1)
         elif self.simulation_type == "Simulate-Attacker-Test-100-P":
-            print("Protocol: Quadratic, Attacker: Partition")
             self.simulate_attacker_test(100, "Normal", True, True, 0.1)
         elif self.simulation_type == "Simulate-Sybil-Attacker-Quadratic-Test-100-P":
-            print("Protocol: PQV, Attacker: No Partition")
             self.simulate_attacker_test(100, "Quadratic", True, True, 0.1)
         elif self.simulation_type == "Simulate-Sybil-Attacker-PQV-Test-100-P":
-            print("Protocol: PQV, Attacker: Partition")
             self.simulate_attacker_test(100, "PQV", True, True, 0.1)
         elif self.simulation_type == "Simulate-PQV-Partition-10":
             print("Protocol: PQV, Attacker: Partition")
@@ -73,8 +67,8 @@ class VotingEngine:
         fail_count = 0
         tie_count = 0
 
-        if verbose: 
-            print("Attacker owns", 100 * attacker_percent, "percent")
+        # if verbose: 
+        #     print("Attacker owns", 100 * attacker_percent, "percent")
         for i in range(rounds):
             test_result = self.run_test(attacker_percent, 1000, attacker_type, partition, False)
             if test_result == "PASS":
@@ -84,7 +78,7 @@ class VotingEngine:
             else:
                 tie_count += 1
         if verbose:
-            print("[pass, fail, tie] = ", [pass_count, fail_count, tie_count])
+            print([pass_count, fail_count, tie_count])
             # print("Pass Percentage: ", 100 * pass_count / (pass_count + fail_count + tie_count))
             # print("Fail Percentage: ", 100 * fail_count / (pass_count + fail_count + tie_count))
             # print("Tie Percentage: ", 100 * tie_count / (pass_count + fail_count + tie_count))
@@ -176,16 +170,17 @@ class VotingEngine:
 # engine.run()
 
 ###### ATTACK SIMULATIONS: Changing Voting Protocol
+# print("normal")
 # engine = VotingEngine("Simulate-Attacker-Test-100")
 # engine.run()
 # engine = VotingEngine("Simulate-Attacker-Test-100-P")
 # engine.run()
-
+# print("quadratic")
 # engine = VotingEngine("Simulate-Sybil-Attacker-Quadratic-Test-100")
 # engine.run()
 # engine = VotingEngine("Simulate-Sybil-Attacker-Quadratic-Test-100-P")
 # engine.run()
-
+# print("pqv")
 # engine = VotingEngine("Simulate-Sybil-Attacker-PQV-Test-100")
 # engine.run()
 # engine = VotingEngine("Simulate-Sybil-Attacker-PQV-Test-100-P")
@@ -206,7 +201,7 @@ class VotingEngine:
 # engine = VotingEngine("Simulate-PQV-Partition-30")
 # engine.run()
 
-engine = VotingEngine("Simulate-Quadratic-Partition-Increasing-Percentage")
-engine.run()
+# engine = VotingEngine("Simulate-Quadratic-Partition-Increasing-Percentage")
+# engine.run()
 engine = VotingEngine("Simulate-PQV-Partition-Increasing-Percentage")
 engine.run()
