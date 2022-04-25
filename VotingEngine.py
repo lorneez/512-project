@@ -8,7 +8,6 @@ class VotingEngine:
         self.simulation_type = simulation_type
 
     def run(self):
-        print(self.simulation_type)
         if self.simulation_type == "Normal-Test":
             self.run_test(0.0, 1000, "Normal", True, True)
         elif self.simulation_type == "Simulate-Normal-Test-100":
@@ -20,41 +19,76 @@ class VotingEngine:
         elif self.simulation_type == "Sybil-Attacker-PQV-Test":
             self.run_test(0.1, 1000, "PQV", True)
         elif self.simulation_type == "Simulate-Attacker-Test-100":
-            self.simulate_attacker_test(100, "Normal", False, True)
+            print("Protocol: Normal, Attacker: No Partition")
+            self.simulate_attacker_test(100, "Normal", False, True, 0.1)
         elif self.simulation_type == "Simulate-Sybil-Attacker-Quadratic-Test-100":
-            self.simulate_attacker_test(100, "Quadratic", False, True)
+            print("Protocol: Normal, Attacker: Partition")
+            self.simulate_attacker_test(100, "Quadratic", False, True, 0.1)
         elif self.simulation_type == "Simulate-Sybil-Attacker-PQV-Test-100":
-            self.simulate_attacker_test(100, "PQV", False, True)
+            print("Protocol: Quadratic, Attacker: No Partition")
+            self.simulate_attacker_test(100, "PQV", False, True, 0.1)
         elif self.simulation_type == "Simulate-Attacker-Test-100-P":
-            self.simulate_attacker_test(100, "Normal", True, True)
+            print("Protocol: Quadratic, Attacker: Partition")
+            self.simulate_attacker_test(100, "Normal", True, True, 0.1)
         elif self.simulation_type == "Simulate-Sybil-Attacker-Quadratic-Test-100-P":
-            self.simulate_attacker_test(100, "Quadratic", True, True)
+            print("Protocol: PQV, Attacker: No Partition")
+            self.simulate_attacker_test(100, "Quadratic", True, True, 0.1)
         elif self.simulation_type == "Simulate-Sybil-Attacker-PQV-Test-100-P":
-            self.simulate_attacker_test(100, "PQV", True, True)
+            print("Protocol: PQV, Attacker: Partition")
+            self.simulate_attacker_test(100, "PQV", True, True, 0.1)
+        elif self.simulation_type == "Simulate-PQV-Partition-10":
+            print("Protocol: PQV, Attacker: Partition")
+            self.simulate_attacker_test(100, "PQV", True, True, 0.1)
+        elif self.simulation_type == "Simulate-PQV-Partition-20":
+            print("Protocol: PQV, Attacker: Partition")
+            self.simulate_attacker_test(100, "PQV", True, True, 0.2)
+        elif self.simulation_type == "Simulate-PQV-Partition-30":
+            print("Protocol: PQV, Attacker: Partition")
+            self.simulate_attacker_test(100, "PQV", True, True, 0.3)
+        elif self.simulation_type == "Simulate-Quadratic-Partition-10":
+            print("Protocol: Quadratic, Attacker: Partition")
+            self.simulate_attacker_test(100, "Quadratic", True, True, 0.1)
+        elif self.simulation_type == "Simulate-Quadratic-Partition-20":
+            print("Protocol: Quadratic, Attacker: Partition")
+            self.simulate_attacker_test(100, "Quadratic", True, True, 0.2)
+        elif self.simulation_type == "Simulate-Quadratic-Partition-30":
+            print("Protocol: Quadratic, Attacker: Partition")
+            self.simulate_attacker_test(100, "Quadratic", True, True, 0.3)
+        elif self.simulation_type == "Simulate-Quadratic-Partition-Increasing-Percentage":
+            print("Protocol: Quadratic, Attacker: Partition")
+            for p in range(0,31):
+                percent = p/100
+                self.simulate_attacker_test(100, "Quadratic", True, True, percent)
+        elif self.simulation_type == "Simulate-PQV-Partition-Increasing-Percentage":
+            print("Protocol: PQV, Attacker: Partition")
+            for p in range(0,101):
+                percent = p/100
+                self.simulate_attacker_test(100, "PQV", True, True, percent)
+            
     
-    def simulate_attacker_test(self, rounds=100, attacker_type="Normal", partition=False, verbose=False):
-        if verbose: 
-            print("Simulating Attacker Test 100 times...")
+    def simulate_attacker_test(self, rounds=100, attacker_type="Normal", partition=False, verbose=False, attacker_percent=0.1):
+        # if verbose: 
+        #     print("Simulating Attacker Test 100 times...")
         pass_count = 0
         fail_count = 0
         tie_count = 0
 
-        for p in [0.1]:
-            if verbose: 
-                print("Attacker owns", 100 * p, "percent")
-            for i in range(rounds):
-                test_result = self.run_test(p, 1000, attacker_type, partition, False)
-                if test_result == "PASS":
-                    pass_count += 1
-                elif test_result == "FAIL":
-                    fail_count += 1
-                else:
-                    tie_count += 1
-            if verbose:
-                print("[pass, fail, tie] = ", [pass_count, fail_count, tie_count])
-                print("Pass Percentage: ", 100 * pass_count / (pass_count + fail_count + tie_count))
-                print("Fail Percentage: ", 100 * fail_count / (pass_count + fail_count + tie_count))
-                print("Tie Percentage: ", 100 * tie_count / (pass_count + fail_count + tie_count))
+        if verbose: 
+            print("Attacker owns", 100 * attacker_percent, "percent")
+        for i in range(rounds):
+            test_result = self.run_test(attacker_percent, 1000, attacker_type, partition, False)
+            if test_result == "PASS":
+                pass_count += 1
+            elif test_result == "FAIL":
+                fail_count += 1
+            else:
+                tie_count += 1
+        if verbose:
+            print("[pass, fail, tie] = ", [pass_count, fail_count, tie_count])
+            # print("Pass Percentage: ", 100 * pass_count / (pass_count + fail_count + tie_count))
+            # print("Fail Percentage: ", 100 * fail_count / (pass_count + fail_count + tie_count))
+            # print("Tie Percentage: ", 100 * tie_count / (pass_count + fail_count + tie_count))
+            
 
     def simulate_normal_test(self, rounds=100, verbose=False):
         if verbose: 
@@ -128,7 +162,7 @@ class VotingEngine:
             print("Result: ", result)
         return result
 
-
+###### INITIAL TESTS
 # engine = VotingEngine("Normal-Test")
 # engine.run()
 
@@ -141,17 +175,38 @@ class VotingEngine:
 # engine = VotingEngine("Simulate-Attacker-Test-100")
 # engine.run()
 
-engine = VotingEngine("Simulate-Attacker-Test-100")
-engine.run()
-engine = VotingEngine("Simulate-Attacker-Test-100-P")
-engine.run()
+###### ATTACK SIMULATIONS: Changing Voting Protocol
+# engine = VotingEngine("Simulate-Attacker-Test-100")
+# engine.run()
+# engine = VotingEngine("Simulate-Attacker-Test-100-P")
+# engine.run()
 
-engine = VotingEngine("Simulate-Sybil-Attacker-Quadratic-Test-100")
-engine.run()
-engine = VotingEngine("Simulate-Sybil-Attacker-Quadratic-Test-100-P")
-engine.run()
+# engine = VotingEngine("Simulate-Sybil-Attacker-Quadratic-Test-100")
+# engine.run()
+# engine = VotingEngine("Simulate-Sybil-Attacker-Quadratic-Test-100-P")
+# engine.run()
 
-engine = VotingEngine("Simulate-Sybil-Attacker-PQV-Test-100")
+# engine = VotingEngine("Simulate-Sybil-Attacker-PQV-Test-100")
+# engine.run()
+# engine = VotingEngine("Simulate-Sybil-Attacker-PQV-Test-100-P")
+# engine.run()
+
+###### ATTACK SIMULATIONS: Increasing Attacker Percentage
+# engine = VotingEngine("Simulate-Quadratic-Partition-10")
+# engine.run()
+# engine = VotingEngine("Simulate-Quadratic-Partition-20")
+# engine.run()
+# engine = VotingEngine("Simulate-Quadratic-Partition-30")
+# engine.run()
+
+# engine = VotingEngine("Simulate-PQV-Partition-10")
+# engine.run()
+# engine = VotingEngine("Simulate-PQV-Partition-20")
+# engine.run()
+# engine = VotingEngine("Simulate-PQV-Partition-30")
+# engine.run()
+
+engine = VotingEngine("Simulate-Quadratic-Partition-Increasing-Percentage")
 engine.run()
-engine = VotingEngine("Simulate-Sybil-Attacker-PQV-Test-100-P")
+engine = VotingEngine("Simulate-PQV-Partition-Increasing-Percentage")
 engine.run()
